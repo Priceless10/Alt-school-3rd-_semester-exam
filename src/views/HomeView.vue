@@ -1,55 +1,56 @@
-<!--<template>
-<div v-for="item in repo" :key="item.id">
-{{ item.name }} {{ item.html_url }}
-</div>
-</template>
-<script setup>
-import axios from "axios";
-import style from "../style.css"
-import Repository from '../components/Repository.vue'
-import {ref,onMounted} from "vue"
-const repo = ref([])
-/**export default {**/
-    const getRepo = async () => {
-try {const res = await axios.get("https://api.github.com/users/Priceless10/repos")
-console.log(res.data)
-repo.value = res.data
-} catch (error) {
-console.log(error)
-}
-}
-    onMounted (()=>{
-getRepo()
-    }) 
-</script>
--->
-
-// Home.vue
 <template>
-  <div>
-    <h1>My GitHub Repositories</h1>
-    <ul>
-      <li v-for="repo in repos" :key="repo.id">
-        <router-link :to="`/repo/${repo.id}`">{{repo.name}}</router-link>
-      </li>
-    </ul>
+  <div >
+      <div class="home-page">
+          <p>Repo</p>
+
+      <RouterLink to="/repo" class="btn btn-secondary w-25 home-page-btn">Get Started</RouterLink>
+      </div>
+      
+      
   </div>
+  
 </template>
-
-<script>
-import axios from 'axios'
-
-export default {
-  name: 'Home',
-  data() {
-    return {
-      repos: []
-    }
-  },
-  created() {
-    axios.get('https://api.github.com/users/Priceless10/repos')
-      .then(res => this.repos = res.data)
-  }
+<style>
+.home-page{
+  width:fit-content;
 }
-</script>
+.home-page h1{
+  font-size: 3rem;
+}
+.home-page h3{
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+}
+.home-page p{
+  margin-top: 150px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
+  color: black;
+  font-size: 70px;
+  
+}
+.home-page-btn{
+  margin-top: 130px;
+
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: auto;
+
+
+  background-color: #99eeb1;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 10px;
+  color: rgb(225, 238, 248);
+
+
+}
+</style>

@@ -1,7 +1,7 @@
 //Creating a Vue.js Application
 
 // main.js
-<script>
+<!-- <script>
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -11,4 +11,7 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-</script>
+</script> -->
+<template>
+  <h1>Welcome</h1>
+</template>
